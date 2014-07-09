@@ -1,0 +1,15 @@
+{
+    "name": "com.ubuntu.developer.rpadovani.100balls",
+    "description": "description of 100balls",
+    "framework": "ubuntu-sdk-14.10-qml-dev2",
+    "architecture": "all",
+    "title": "100balls",
+    "hooks": {
+        "100balls": {
+            "apparmor": "100balls.json",
+            "desktop": "100balls.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Riccardo Padovani <rpadovani@ubuntu.com>"
+}
