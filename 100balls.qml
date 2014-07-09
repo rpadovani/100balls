@@ -18,11 +18,24 @@ MainView {
     property bool isDoorOpen: false
     property int numberOfBalls: 100
     property int score: 0
+    property int level: 1
+    property int velocity: 10
+    property int glassScore: 1
 
     onNumberOfBallsChanged: {
         if (numberOfBalls === 0) {
             Game.endGame();
         }
+    }
+
+    onScoreChanged: {
+        if (score % (level * 50) === 0) {
+            level++;
+        }
+    }
+
+    onLevelChanged: {
+        velocity ++;
     }
 
     PageStack {
@@ -44,6 +57,7 @@ MainView {
             Settings {
                 id: settings
                 property int highScore: 0;
+                property int highLevel: 0;
             }
 
             Scene {
@@ -85,7 +99,7 @@ MainView {
                     font.pixelSize: 18
                     horizontalAlignment: Text.AlignCenter
 
-                    text: score
+                    text: score + " level " + level
                 }
 
                 Entity {

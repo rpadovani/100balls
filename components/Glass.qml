@@ -16,11 +16,36 @@ Component {
 
         property var lineColor: "#DD4814"
         property var backgroundColor: Qt.rgba(1, 0.49, 0.31, 0.5) 
-        property var velocity: 10
         property bool launchedOther: false
 
         function doDestroy() {
             destroy();
+        }
+
+        Component.onCompleted: {
+            var color = Math.floor(Math.random()*level);
+
+            if (color >= 5 && color < 10) {
+                glassScore = 2;
+            }
+            if (color >= 10 && color < 15) {
+                glassScore = 3;
+            }
+            if (color >= 15 && color < 20) {
+                glassScore = 4;
+            }
+            if (color >= 20 && color < 25) {
+                glassScore = 5;
+            }
+            if (color >= 25 && color < 30) {
+                glassScore = 6;
+            }
+            if (color >= 30 && color < 35) {
+                glassScore = 7;
+            }
+            if (color >= 35 && color < 40) {
+                glassScore = 8;
+            }
         }
 
         fixtures: [ 

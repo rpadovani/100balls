@@ -39,7 +39,7 @@ Component {
                         entity.x = scene.width / 2;
                         entity.y = 0;
                         entity.glassContact = false;
-                        score++;
+                        score += glassScore;
                     }
                     else {
                         ballEntity.doDestroy();
