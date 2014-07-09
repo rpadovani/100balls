@@ -21,10 +21,7 @@ MainView {
 
     onNumberOfBallsChanged: {
         if (numberOfBalls === 0) {
-            scene.running = false
-            if (score > settings.highScore) {
-                settings.highScore = score;
-            }
+            Game.endGame();
         }
     }
 
@@ -39,10 +36,10 @@ MainView {
 
         Game {
             id: game
-            anchors.fill: parent
+            width: units.gu(50)
+            height: units.gu(75)
 
             gameName: "100Balls"
-            currentScene: scene
 
             Settings {
                 id: settings

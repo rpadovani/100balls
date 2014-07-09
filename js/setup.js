@@ -6,5 +6,6 @@ function newGame() {
             newBox.y = units.gu(1.5*i);
         }
     }
+    game.pushScene(scene);
     scene.running = true;
 }
