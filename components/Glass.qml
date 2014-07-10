@@ -14,8 +14,8 @@ Component {
 
         sleepingAllowed: true
 
-        property var lineColor: "#DD4814"
-        property var backgroundColor: Qt.rgba(1, 0.49, 0.31, 0.5) 
+        property color lineColor
+        property color backgroundColor
         property bool launchedOther: false
 
         function doDestroy() {
@@ -23,29 +23,49 @@ Component {
         }
 
         Component.onCompleted: {
-            var color = Math.floor(Math.random()*level);
+            var levelColor = Math.floor(Math.random()*level) + 1;
 
-            if (color >= 5 && color < 10) {
+            if (levelColor < 5) {
+                glassScore = 1;
+                lineColor = Qt.rgba(0.86, 0.28, 0.07, 1);        // #DD4814 - Ubuntu Orange
+                backgroundColor = Qt.rgba(0.86, 0.28, 0.07, 0.5);
+            }
+            if (levelColor >= 5 && levelColor < 10) {
                 glassScore = 2;
+                lineColor = Qt.rgba(0.47, 0.13, 0.43, 1);        // #72216F - Light Aubergine
+                backgroundColor = Qt.rgba(0.47, 0.13, 0.43, 0.5);
             }
-            if (color >= 10 && color < 15) {
+            if (levelColor >= 10 && levelColor < 15) {
                 glassScore = 3;
+                lineColor = Qt.rgba(0, 0, 1, 1);                 // #OOFFFF - Aqua
+                backgroundColor = Qt.rgba(0, 0, 1, 0.5);
             }
-            if (color >= 15 && color < 20) {
+            if (levelColor >= 15 && levelColor < 20) {
                 glassScore = 4;
+                lineColor = Qt.rgba(1, 1, 0, 1);                 // #FF0000 - Yellow
+                backgroundColor = Qt.rgba(1, 1, 0, 0.5);
             }
-            if (color >= 20 && color < 25) {
+            if (levelColor >= 20 && levelColor < 25) {
                 glassScore = 5;
+                lineColor = Qt.rgba(0.5, 0, 0.5, 1);             // #800080 - Purple
+                backgroundColor = Qt.rgba(0.5, 0, 0.5, 0.5);
             }
-            if (color >= 25 && color < 30) {
+            if (levelColor >= 25 && levelColor < 30) {
                 glassScore = 6;
+                lineColor = Qt.rgba(0, 0.5, 0, 1);               // #008000 - Green
+                backgroundColor = Qt.rgba(0, 0.5, 0, 0.5);
             }
-            if (color >= 30 && color < 35) {
+            if (levelColor >= 30 && levelColor < 35) {
                 glassScore = 7;
+                lineColor = Qt.rgba(1, 0, 0, 1);                // #FF0000 - Red
+                backgroundColor = Qt.rgba(1, 0, 0, 0.5);
             }
-            if (color >= 35 && color < 40) {
+            if (levelColor >= 35 && levelColor < 40) {
                 glassScore = 8;
+                lineColor = Qt.rgba(0.66, 0.66, 0.66, 1)        // #A9A9A9 - darkgray 
+                backgroundColor = Qt.rgba(0.66, 0.66, 0.66, 0.5)   
             }
+            glassCanvas.createGlass()
         }
 
         fixtures: [ 
@@ -69,6 +89,8 @@ Component {
                 sensor: true
                 onBeginContact: {
                     other.parent.glassContact = true;
+                    other.parent.ballColor = lineColor;
+                    other.parent.ballLevel = glassScore;
                 }
             }
         ]
@@ -77,7 +99,7 @@ Component {
             id: glassCanvas
             anchors.fill: parent
 
-            onPaint: {
+            function createGlass() {
                 var context = glassCanvas.getContext("2d");
                 context.beginPath();
                 context.strokeStyle = lineColor;

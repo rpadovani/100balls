@@ -8,8 +8,10 @@ Component {
         height: units.gu(1.3)
 
         bodyType: Entity.Dynamic
+        sleepingAllowed: false
 
-        property var color: "#dd4814"
+        property color ballColor: Qt.rgba(0.86, 0.28, 0.07, 1)
+        property int ballLevel: 1
         property bool glassContact: false
 
         fixtures: Circle {
@@ -22,7 +24,7 @@ Component {
 
         Rectangle {
             radius: parent.width / 2
-            color: parent.color
+            color: parent.ballColor
             width: parent.width
             height: parent.height
         }
@@ -39,7 +41,7 @@ Component {
                         entity.x = scene.width / 2;
                         entity.y = 0;
                         entity.glassContact = false;
-                        score += glassScore;
+                        score += ballLevel;
                     }
                     else {
                         ballEntity.doDestroy();

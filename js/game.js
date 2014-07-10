@@ -17,7 +17,7 @@ function endGame() {
     score = 0;
     level = 1;
     velocity = 10;
-    glassScore = 0;
+    glassScore = 1;
 
     if (page) {
         page.destroy(100);

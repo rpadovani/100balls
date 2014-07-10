@@ -29,13 +29,11 @@ MainView {
     }
 
     onScoreChanged: {
-        if (score % (level * 50) === 0) {
-            level++;
-        }
+        level = score / 50 + 1;
     }
 
     onLevelChanged: {
-        velocity ++;
+        velocity++;
     }
 
     PageStack {
