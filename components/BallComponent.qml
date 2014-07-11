@@ -33,21 +33,5 @@ Component {
             numberOfBalls--;
             destroy();
         }
-
-        behavior: ScriptBehavior {
-            script: {
-                if (entity.y > scene.height) {
-                    if (entity.glassContact === true) {
-                        entity.x = scene.width / 2;
-                        entity.y = 0;
-                        entity.glassContact = false;
-                        score += ballLevel;
-                    }
-                    else {
-                        ballEntity.doDestroy();
-                    }
-                }
-            }
-        }
     }
 }

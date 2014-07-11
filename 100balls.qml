@@ -65,7 +65,6 @@ MainView {
                 physics: true
                 running: false
 
-
                 BallComponent {
                     id: ballComponent
                 }
@@ -77,6 +76,10 @@ MainView {
                 Bowl {
                     id: bowl
                     anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                Bottom {
+                    anchors.bottom: parent.bottom
                 }
 
                 Text {
