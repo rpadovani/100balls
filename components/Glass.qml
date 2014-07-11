@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQml 2.2
 import Bacon2D 1.0
 import "../js/game.js" as Game
 
@@ -133,5 +134,12 @@ Component {
         }
 
         NumberAnimation {id: entityAnimation; target: glass; property: "x"; duration: 100}
+
+        Connections {
+            target: scene
+            onRunningChanged: {
+                glass.doDestroy();
+            }
+        }
     }
 }
