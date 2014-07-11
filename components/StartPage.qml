@@ -38,6 +38,12 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Tutorial"
             visible: !anotherGame
+
+            onClicked: {
+                var component = Qt.createComponent(Qt.resolvedUrl("Tutorial.qml"));
+                var page = component.createObject(mainview, {highScore: settings.highScore});
+                pagestack.push(page);
+            }
         }
 
         Button {
