@@ -68,6 +68,7 @@ Entity {
         onPaint: {
             var context = canvas.getContext("2d")
             context.beginPath();
+            context.lineWidth = units.gu(0.5);
 
             // Left border
             context.moveTo(0, 0);
@@ -86,7 +87,7 @@ Entity {
             context.lineTo(width / 2, parent.height / 8);
             context.lineTo(width * 3/4, parent.height / 4);
 
-            context.strokeStyle = "black";
+            context.strokeStyle = "white";
             context.stroke();
         }
     }

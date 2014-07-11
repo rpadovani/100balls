@@ -57,6 +57,12 @@ MainView {
                 property int highScore: 0;
                 property int highLevel: 0;
             }
+            
+            Image {
+                source: Qt.resolvedUrl("img/background.png")
+                anchors.fill: parent
+                fillMode: Image.Tile
+            }
 
             Scene {
                 id: scene
@@ -87,7 +93,8 @@ MainView {
                     anchors.horizontalCenter: parent.horizontalCenter
                     y: 0
 
-                    font.pixelSize: 13
+                    font.pixelSize: units.gu(3)
+                    color: "white"
                     horizontalAlignment: Text.AlignCenter
 
                     text: numberOfBalls
@@ -97,10 +104,11 @@ MainView {
                     id: scoreText
                     anchors.centerIn: parent
 
-                    font.pixelSize: 18
-                    horizontalAlignment: Text.AlignCenter
+                    font.pixelSize: units.gu(2.5) 
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
 
-                    text: score + " level " + level
+                    text: "level " + level + "\n " + score + " points"
                 }
 
                 Entity {
@@ -130,11 +138,12 @@ MainView {
                         onPaint: {
                             var context = canvas.getContext("2d");
                             context.beginPath();
+                            context.lineWidth = units.gu(0.5);
 
                             context.moveTo(0, 0);
                             context.lineTo(width, 0);
 
-                            context.strokeStyle = "black";
+                            context.strokeStyle = "white";
                             context.stroke();
                         }
                     }
