@@ -15,7 +15,9 @@ Page {
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
 
+        font.pixelSize: units.gu(10)
         text: "100balls!"
+        color: "white"
     }
 
     Column {
@@ -55,6 +57,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
 
             text: "High score: " + highScore
+            color: "white"
         }
     }
 }

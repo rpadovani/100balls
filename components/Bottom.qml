@@ -3,7 +3,9 @@ import Bacon2D 1.0
 
 Entity {
     height: units.gu(10)
-    width: units.gu(50)
+    width: units.gu(200)
+
+    anchors.horizontalCenter: parent.horizontalCenter
 
     fixtures: [
         Edge {

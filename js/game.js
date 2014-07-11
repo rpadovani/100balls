@@ -7,7 +7,8 @@ function launchGlass() {
 function endGame() {
     scene.running = false;
     game.popScene();
-        if (score > settings.highScore) {
+
+    if (score > settings.highScore) {
         settings.highScore = score;
         settings.highLevel = level;
     }
@@ -16,7 +17,7 @@ function endGame() {
     numberOfBalls = 100;
     score = 0;
     level = 1;
-    velocity = 10;
+    velocity = 2.0;
     glassScore = 1;
 
     if (page) {
