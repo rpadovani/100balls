@@ -19,7 +19,7 @@ MainView {
     property int numberOfBalls: 100
     property int score: 0
     property int level: 1
-    property int velocity: 10
+    property var velocity: 2.0 
     property int glassScore: 1
 
     onNumberOfBallsChanged: {
@@ -33,7 +33,7 @@ MainView {
     }
 
     onLevelChanged: {
-        velocity++;
+        velocity += 0.3;
     }
 
     PageStack {

@@ -15,6 +15,8 @@ Component {
 
         sleepingAllowed: true
 
+        linearVelocity: Qt.point(-velocity,0)
+
         property color lineColor
         property color backgroundColor
         property bool launchedOther: false
@@ -125,15 +127,8 @@ Component {
                 if (newPos < -2 * entity.width) {
                     glass.doDestroy();
                 }
-                else {
-                    entityAnimation.from = entity.x;
-                    entityAnimation.to = newPos;
-                    entityAnimation.running = true;
-                }
             }
         }
-
-        NumberAnimation {id: entityAnimation; target: glass; property: "x"; duration: 100}
 
         Connections {
             target: scene
