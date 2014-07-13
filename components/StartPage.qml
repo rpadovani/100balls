@@ -30,12 +30,23 @@ Page {
     property bool anotherGame: false
 
     Text {
+        id: title
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
 
         font.pixelSize: units.gu(10)
-        text: "100balls!"
+        text: "100Balls"
         color: "white"
+    }
+
+    Text {
+        id: version
+        anchors.top: title.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        color: "white"
+        font.pixelSize: units.gu(2)
+        text: "Alpha"
     }
 
     Column {
@@ -69,6 +80,12 @@ Page {
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "About"
+
+            onClicked: {
+                var component = Qt.createComponent(Qt.resolvedUrl("About.qml"));
+                var page = component.createObject(mainview);
+                pagestack.push(page);
+            }
         }
 
         Text {
