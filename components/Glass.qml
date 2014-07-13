@@ -151,7 +151,9 @@ Component {
         Connections {
             target: scene
             onRunningChanged: {
-                glass.doDestroy();
+                if (!pause) {
+                    glass.doDestroy();
+                }
             }
         }
     }

@@ -59,8 +59,8 @@ Page {
             text: "Start game!"
 
             onClicked: {
-                pagestack.pop();
                 Setup.newGame();
+                pagestack.pop();
                 Game.launchGlass();
             }
         }

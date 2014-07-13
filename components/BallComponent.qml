@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+import QtQml 2.2
 import QtQuick 2.0
 import Bacon2D 1.0
 
@@ -49,6 +50,15 @@ Component {
         function doDestroy() {
             numberOfBalls--;
             destroy();
+        }
+
+        Connections {
+            target: scene
+            onRunningChanged: {
+                if (!pause && !running) {
+                    ballEntity.destroy();
+                }
+            }
         }
     }
 }

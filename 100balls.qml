@@ -18,6 +18,7 @@
 
 import QtQuick 2.0
 import Ubuntu.Components 0.1
+import Ubuntu.Components.Popups 1.0
 import Bacon2D 1.0
 import "components"
 import "js/setup.js" as Setup
@@ -39,6 +40,8 @@ MainView {
     property int level: 1
     property var velocity: 2.0 
     property int glassScore: 1
+    property bool pause: false
+    property alias running: scene.running
 
     onNumberOfBallsChanged: {
         if (numberOfBalls === 0) {
@@ -170,6 +173,53 @@ MainView {
                     anchors.fill: parent
                     onPressed: isDoorOpen = true;
                     onReleased: isDoorOpen = false;
+                }
+
+                MouseArea {
+                    width: units.gu(10)
+                    height: units.gu(10)
+
+                    anchors.bottom: parent.bottom
+
+                    onClicked: {
+                        pause = true
+                        scene.running = false
+                        PopupUtils.open(pauseDialog)
+                    }
+
+                    Image {
+                        anchors.fill: parent
+                        source: Qt.resolvedUrl("img/pause.png")
+                    }
+                }
+
+                Component {
+                    id: pauseDialog
+                    Dialog {
+                        id: dialog
+                        title: "Pause"
+                        text: "If you quit the highscore will be saved anyway"
+                        
+                        Button {
+                            text: "Continue game"
+                            color: UbuntuColors.orange
+                            onClicked: {
+                                PopupUtils.close(dialog)
+                                scene.running = true;
+                                pause = false;
+                            }
+                        }
+
+                        Button {
+                            text: "Exit game"
+                            onClicked: {
+                                PopupUtils.close(dialog)
+                                pause = false;
+                                scene.running = true
+                                Game.endGame();
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -24,6 +24,7 @@ function launchGlass() {
 
 function endGame() {
     scene.running = false;
+    pause = false;
     game.popScene();
 
     if (score > settings.highScore) {
