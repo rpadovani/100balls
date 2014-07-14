@@ -2,7 +2,7 @@
     "name": "com.ubuntu.developer.rpadovani.100balls",
     "description": "100Balls is a very simple but addicting app. You have to put as more balls as possible in moving glasses, trying to don't lose any ball.",
     "framework": "ubuntu-sdk-14.10-qml-dev2",
-    "architecture": "all",
+    "architecture": "armhf",
     "title": "100balls",
     "hooks": {
         "100balls": {

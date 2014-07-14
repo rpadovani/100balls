@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=100balls
-Exec=/usr/bin/qmlscene $@ /usr/share/100balls/100balls.qml
+Exec=/usr/bin/qmlscene $@ -l . 100balls.qml 
 Icon=100balls.png
 Terminal=false
 Type=Application
