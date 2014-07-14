@@ -68,7 +68,6 @@ Page {
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Tutorial"
-            visible: !anotherGame
 
             onClicked: {
                 var component = Qt.createComponent(Qt.resolvedUrl("Tutorial.qml"));
@@ -90,6 +89,7 @@ Page {
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: units.gu(3)
 
             text: "High score: " + highScore
             color: "white"
