@@ -23,8 +23,8 @@ import "../js/game.js" as Game
 
 Page {
     id: root
-    height: units.gu(75)
-    width: units.gu(50)
+    height: units.gu(60)
+    width: units.gu(48)
 
     property int highScore: 0
     property bool anotherGame: false

@@ -3,8 +3,6 @@ import Ubuntu.Components 0.1
 
 Page {
     id: root
-    height: units.gu(75)
-    width: units.gu(50)
 
     Text {
         id: title
@@ -33,7 +31,7 @@ Page {
         color: "white"
         width: parent.width
         anchors.top: version.bottom
-        anchors.topMargin: units.gu(5)
+        anchors.topMargin: units.gu(3)
         text: "Developed by:"
     }
 
@@ -65,7 +63,7 @@ Page {
         color: "white"
         width: parent.width
         anchors.top: name.bottom
-        anchors.topMargin: units.gu(5)
+        anchors.topMargin: units.gu(3)
         text: "A big thanks to:"
     }
 

@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.0
-import Ubuntu.Components 0.1
+import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 import Bacon2D 1.0
 import "components"
@@ -29,8 +29,8 @@ MainView {
     objectName: "mainView"
     applicationName: "com.ubuntu.developer.rpadovani.100balls"
 
-    width: units.gu(50)
-    height: units.gu(75)
+    width: units.gu(44)
+    height: units.gu(68)
 
     useDeprecatedToolbar: false
 
@@ -38,7 +38,7 @@ MainView {
     property int numberOfBalls: 100
     property int score: 0
     property int level: 1
-    property var velocity: 2.0 
+    property var velocity: units.gu(0.3) 
     property int glassScore: 1
     property bool pause: false
     property alias running: scene.running
@@ -68,8 +68,8 @@ MainView {
 
         Game {
             id: game
-            width: units.gu(50)
-            height: units.gu(75)
+            width: units.gu(44)
+            height: units.gu(68)
 
             gameName: "100Balls"
 

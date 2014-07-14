@@ -35,7 +35,7 @@ Component {
         fixtures: Circle {
             radius: parent.width / 2
             anchors.centerIn: parent
-            density: 2
+            density: units.gu(1) 
             friction: 0.5
             restitution: 0.2
         }

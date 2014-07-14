@@ -36,7 +36,7 @@ function endGame() {
     numberOfBalls = 100;
     score = 0;
     level = 1;
-    velocity = 2.0;
+    velocity = units.gu(0.3);
     glassScore = 1;
 
     if (page) {
