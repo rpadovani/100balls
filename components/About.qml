@@ -5,47 +5,63 @@ Page {
     id: root
 
     Text {
+        // The title of the game, maybe we can create an image for that?
         id: title
+
+        width: parent.width
+
+        color: "white"
         font.pixelSize: units.gu(10)
         horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
 
         text: "100Balls"
     }
 
     Text {
+        // Version of the game, still Alpha :-)
         id: version
+
+        anchors.top: title.bottom
+        width: parent.width
+
+        color: "white"
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
-        anchors.top: title.bottom
+
         text: "Alpha"
     }
 
     Text {
+        // Introductory text for developers
         id: dev
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
+
         anchors.top: version.bottom
         anchors.topMargin: units.gu(3)
+        width: parent.width
+
+        color: "white"
+        font.pixelSize: units.gu(2)
+        horizontalAlignment: Text.AlignHCenter
+
         text: "Developed by:"
     }
 
     Text {
+        // List of all developers
         id: name
+
+        anchors.top: dev.bottom
+        width: parent.width
+
         font.pixelSize: units.gu(3)
         horizontalAlignment: Text.AlignHCenter
         color: "white"
-        width: parent.width
-        anchors.top: dev.bottom
+
         text: "Riccardo Padovani"
     }
 
     /*Text {
+        // I want to have a mobile ready site before this
         id: url 
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
@@ -57,61 +73,78 @@ Page {
     }*/
 
     Text {
+        // Special thanks to Ken VanDine :-)
         id: kenint
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
+
         anchors.top: name.bottom
         anchors.topMargin: units.gu(3)
+        width: parent.width
+
+        color: "white"
+        font.pixelSize: units.gu(2)
+        horizontalAlignment: Text.AlignHCenter
+
         text: "A big thanks to:"
     }
 
     Text {
         id: ken
+
+        anchors.top: kenint.bottom
+        width: parent.width
+        
+        color: "white"
         font.pixelSize: units.gu(3)
         horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
-        anchors.top: kenint.bottom
+        
         text: "Ken VanDine"
     }
 
     Text {
+        // Bacon2D is awesome, seriously
         id: baconText 
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
+
         anchors.top: ken.bottom
         anchors.topMargin: units.gu(5)
+        width: parent.width
+        
+        color: "white"
+        font.pixelSize: units.gu(2)
+        horizontalAlignment: Text.AlignHCenter
+        
         text: "Based on:"
     }
 
     Text {
         id: bacon
+
+        anchors.top: baconText.bottom
+        width: parent.width
+        
+        color: "white"
         font.pixelSize: units.gu(3)
         horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
-        anchors.top: baconText.bottom
+        
         text: "Bacon 2D"
     }
 
     Image {
+        // How cute is this pig?
         id: image 
+
         source: Qt.resolvedUrl("../img/pig-128.png")
+        
         anchors.top: bacon.bottom
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
     Button {
         text: "Close"
+        
         anchors.top: image.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: pagestack.pop()
         anchors.topMargin: units.gu(5)
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        onClicked: pagestack.pop()
     }
-
-
 }

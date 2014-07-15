@@ -22,29 +22,36 @@ import Bacon2D 1.0
 Component {
     Entity {
         id: ballEntity
-        width: units.gu(1.3)
         height: units.gu(1.3)
+        width: units.gu(1.3)
 
         bodyType: Entity.Dynamic
-        sleepingAllowed: false
+        sleepingAllowed: false // If sleeping is allowed, when the door becomes a sensor, ball doesn't fall
 
-        property color ballColor: Qt.rgba(0.86, 0.28, 0.07, 1)
-        property int ballLevel: 1
+        // Becomes true if goes throught a glass
         property bool glassContact: false
+        property color ballColor: Qt.rgba(0.86, 0.28, 0.07, 1)  // #DD4814
+        property int ballLevel: 1   // This is the score of the ball. It depends on the color of the glass it goes throught
 
         fixtures: Circle {
-            radius: parent.width / 2
+            // This is the physic entity
             anchors.centerIn: parent
+            radius: parent.width / 2
+
+            // How ball goes... I'm not happy yet with these
             density: units.gu(1) 
             friction: 0.5
             restitution: 0.2
         }
 
         Rectangle {
+            // This is the drawn ball
             radius: parent.width / 2
+            
             color: parent.ballColor
-            width: parent.width
+
             height: parent.height
+            width: parent.width
         }
 
         function doDestroy() {
@@ -56,6 +63,7 @@ Component {
             target: scene
             onRunningChanged: {
                 if (!pause && !running) {
+                    // At the end of the game, destroy all!
                     ballEntity.destroy();
                 }
             }

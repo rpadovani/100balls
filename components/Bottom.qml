@@ -36,6 +36,8 @@ Entity {
 
             onBeginContact: {
                 if (other.parent.glassContact === true) {
+                    // If the ball went throught a glass, reset it and put it
+                    // at the top of the scene
                     other.parent.x = scene.width / 2;
                     other.parent.y = 0;
                     other.parent.glassContact = false;

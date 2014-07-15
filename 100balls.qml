@@ -29,18 +29,27 @@ MainView {
     objectName: "mainView"
     applicationName: "com.ubuntu.developer.rpadovani.100balls"
 
-    width: units.gu(44)
     height: units.gu(68)
+    width: units.gu(44)
 
     useDeprecatedToolbar: false
 
+    // Becomes true when the user press anywhere (but pause) and leaves the
+    // balls fall
     property bool isDoorOpen: false
-    property int numberOfBalls: 100
-    property int score: 0
-    property int level: 1
-    property var velocity: units.gu(0.3) 
-    property int glassScore: 1
+    // Becomes true when the game is in pause. Needs because when scene.running
+    // is false all objects are destroyed, not if this is true
     property bool pause: false
+    // Total number of balls in game
+    property int numberOfBalls: 100
+    // Score of this game
+    property int score: 0
+    // Actual level
+    property int level: 1
+    // How many points a ball does when falls in a glass
+    property int glassScore: 1
+    // Speed of glasses
+    property real velocity: units.gu(0.3) 
     property alias running: scene.running
 
     onNumberOfBallsChanged: {
@@ -50,10 +59,12 @@ MainView {
     }
 
     onScoreChanged: {
+        // Every 50 points the level goes up
         level = score / 50 + 1;
     }
 
     onLevelChanged: {
+        // At evey level the speed of glass goes up
         velocity += 0.3;
     }
 
@@ -61,6 +72,7 @@ MainView {
         id: pagestack
 
         Component.onCompleted: {
+            // The first page is StartPage.qml
             var component = Qt.createComponent(Qt.resolvedUrl("components/StartPage.qml"));
             var page = component.createObject(mainview, {highScore: settings.highScore});
             pagestack.push(page);
@@ -68,18 +80,18 @@ MainView {
 
         Game {
             id: game
-            width: units.gu(44)
             height: units.gu(68)
+            width: units.gu(44)
 
             gameName: "100Balls"
 
             Settings {
                 id: settings
                 property int highScore: 0;
-                property int highLevel: 0;
             }
             
             Image {
+                // Background of all app
                 source: Qt.resolvedUrl("img/background.png")
                 anchors.fill: parent
                 fillMode: Image.Tile
@@ -91,9 +103,12 @@ MainView {
 
                 physics: true
                 running: false
+                //TODO: implement an argument to turn on the debug mode on
+                //startup
+                //debug: true
 
-                BallComponent {
-                    id: ballComponent
+                Ball {
+                    id: ball
                 }
 
                 Glass {
@@ -101,47 +116,54 @@ MainView {
                 }
 
                 Bowl {
+                    // This is the bowl which contains all balls at the top of
+                    // the scene
                     id: bowl
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
 
                 Bottom {
+                    // This element manages balls and take care of the score
                     anchors.bottom: parent.bottom
                 }
 
                 Text {
+                    // Top element that indicate how many ball are in game
                     id: ballCounter
                     anchors.horizontalCenter: parent.horizontalCenter
                     y: 0
 
-                    font.pixelSize: units.gu(3)
-                    color: "white"
-                    horizontalAlignment: Text.AlignCenter
-
                     text: numberOfBalls
+
+                    color: "white"
+                    font.pixelSize: units.gu(3)
+                    horizontalAlignment: Text.AlignHCenter
                 }
 
                 Text {
+                    // User score
                     id: scoreText
                     anchors.centerIn: parent
 
-                    font.pixelSize: units.gu(2.5) 
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-
                     text: "level " + level + "\n " + score + " points"
+
+                    color: "white"
+                    font.pixelSize: units.gu(2.5) 
+                    horizontalAlignment: Text.AlignHCenter
                 }
 
                 Entity {
+                    // When user clicks on the screen this become a sensor, and
+                    // balls can fall
                     id: door
                     height: units.gu(1)
-                    width: units.gu(6.25)
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: units.gu(6.25)       // This is the width of the bottleneck of the bowl
                     anchors.top: bowl.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
 
                     fixtures: Box {
                         anchors.fill: parent
-                        sensor: isDoorOpen
+                        sensor: isDoorOpen      // <- All game is here :-)
                         Edge {
                             vertices: [
                                 Qt.point(0, 0),
@@ -152,7 +174,7 @@ MainView {
 
                     Canvas {
                         id: canvas
-                        visible: !isDoorOpen
+                        visible: !isDoorOpen    // When the user clicks, hide this
 
                         anchors.fill: parent
 
@@ -169,19 +191,25 @@ MainView {
                         }
                     }
                 }
+
                 MouseArea {
+                    // When the user press on the screen door opens and balls
+                    // fall
                     anchors.fill: parent
                     onPressed: isDoorOpen = true;
                     onReleased: isDoorOpen = false;
                 }
 
                 MouseArea {
-                    width: units.gu(10)
                     height: units.gu(10)
+                    width: units.gu(10)
 
                     anchors.bottom: parent.bottom
 
                     onClicked: {
+                        // Don't change this order!
+                        // The pause is set before scene is stopped, because
+                        // otherwise all objects are destructed
                         pause = true
                         scene.running = false
                         PopupUtils.open(pauseDialog)
@@ -202,8 +230,8 @@ MainView {
                         
                         Button {
                             text: "Continue game"
-                            color: UbuntuColors.orange
                             onClicked: {
+                                // Don't change this order, see below!
                                 PopupUtils.close(dialog)
                                 scene.running = true;
                                 pause = false;
@@ -214,14 +242,16 @@ MainView {
                             text: "Exit game"
                             onClicked: {
                                 PopupUtils.close(dialog)
+                                // We need to restart the game, so functions
+                                // can destroy all objects when the game ends
                                 pause = false;
                                 scene.running = true
                                 Game.endGame();
                             }
                         }
                     }
-                }
-            }
-        }
-    }
-}
+                } // End component
+            } // End scene
+        } // End game
+    } // End pagestack
+} // End mainview
