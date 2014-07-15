@@ -29,7 +29,6 @@ function endGame() {
 
     if (score > settings.highScore) {
         settings.highScore = score;
-        settings.highLevel = level;
     }
 
     isDoorOpen = false;

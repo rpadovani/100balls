@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-16 00:26+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 100balls.qml:149
+msgid "level"
+msgstr ""
+
+#: 100balls.qml:149
+msgid "points"
+msgstr ""
+
+#: 100balls.qml:229
+msgid "Pause"
+msgstr ""
+
+#: 100balls.qml:230
+msgid "If you quit the game the highscore will be saved anyway"
+msgstr ""
+
+#: 100balls.qml:233
+msgid "Continue game"
+msgstr ""
+
+#: 100balls.qml:243
+msgid "Exit game"
+msgstr ""
+
+#: components/About.qml:46
+msgid "Developed by:"
+msgstr ""
+
+#: components/About.qml:87
+msgid "A big thanks to:"
+msgstr ""
+
+#: components/About.qml:115
+msgid "Based on:"
+msgstr ""
+
+#: components/About.qml:142
+msgid "Close"
+msgstr ""
+
+#: components/StartPage.qml:59
+msgid "Start game!"
+msgstr ""
+
+#: components/StartPage.qml:81
+msgid "About"
+msgstr ""
+
+#: components/StartPage.qml:94
+msgid "High score: "
+msgstr ""
+
+#: components/Tutorial.qml:35
+msgid ""
+"The game is very easy :-) \n"
+"\n"
+"Touch the screen in any point to open the door and let the balls fall. \n"
+"Try to put more balls possible in every glass. \n"
+"You start with 100 balls, any ball which falls off the glass is lost. \n"
+"\n"
+"Every 50 balls you put in glasses you'll advance of one level. \n"
+"Every 5 levels there is a little chance to have a glass of another color.\n"
+"Every glass color has a different score.\n"
+"\n"
+"Try to do your best :-) "
+msgstr ""
+
+#: components/Tutorial.qml:42
+msgid "I'm ready"
+msgstr ""

@@ -56,7 +56,7 @@ Page {
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Start game!"
+            text: i18n.tr("Start game!")
 
             onClicked: {
                 Setup.newGame();
@@ -78,7 +78,7 @@ Page {
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "About"
+            text: i18n.tr("About")
 
             onClicked: {
                 var component = Qt.createComponent(Qt.resolvedUrl("About.qml"));
@@ -91,7 +91,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: units.gu(3)
 
-            text: "High score: " + highScore
+            text: i18n.tr("High score: " + highScore)
             color: "white"
         }
     }

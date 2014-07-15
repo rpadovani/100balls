@@ -43,7 +43,7 @@ Page {
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
 
-        text: "Developed by:"
+        text: i18n.tr("Developed by:")
     }
 
     Text {
@@ -84,7 +84,7 @@ Page {
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
 
-        text: "A big thanks to:"
+        text: i18n.tr("A big thanks to:")
     }
 
     Text {
@@ -112,7 +112,7 @@ Page {
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
         
-        text: "Based on:"
+        text: i18n.tr("Based on:")
     }
 
     Text {
@@ -139,7 +139,7 @@ Page {
     }
 
     Button {
-        text: "Close"
+        text: i18n.tr("Close")
         
         anchors.top: image.bottom
         anchors.topMargin: units.gu(5)

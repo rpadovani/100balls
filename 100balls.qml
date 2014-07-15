@@ -101,6 +101,7 @@ MainView {
                 id: scene
                 anchors.fill: parent
 
+                gravity: Qt.point(0, 15)
                 physics: true
                 running: false
                 //TODO: implement an argument to turn on the debug mode on
@@ -145,7 +146,7 @@ MainView {
                     id: scoreText
                     anchors.centerIn: parent
 
-                    text: "level " + level + "\n " + score + " points"
+                    text: i18n.tr("level") + " " + level + "\n " + score + " " + i18n.tr("points")
 
                     color: "white"
                     font.pixelSize: units.gu(2.5) 
@@ -225,11 +226,11 @@ MainView {
                     id: pauseDialog
                     Dialog {
                         id: dialog
-                        title: "Pause"
-                        text: "If you quit the highscore will be saved anyway"
+                        title: i18n.tr("Pause")
+                        text: i18n.tr("If you quit the game the highscore will be saved anyway")
                         
                         Button {
-                            text: "Continue game"
+                            text: i18n.tr("Continue game")
                             onClicked: {
                                 // Don't change this order, see below!
                                 PopupUtils.close(dialog)
@@ -239,7 +240,7 @@ MainView {
                         }
 
                         Button {
-                            text: "Exit game"
+                            text: i18n.tr("Exit game")
                             onClicked: {
                                 PopupUtils.close(dialog)
                                 // We need to restart the game, so functions

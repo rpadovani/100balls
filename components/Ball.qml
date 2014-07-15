@@ -39,7 +39,7 @@ Component {
             radius: parent.width / 2
 
             // How ball goes... I'm not happy yet with these
-            density: units.gu(1) 
+            density: 1 
             friction: 0.5
             restitution: 0.2
         }
