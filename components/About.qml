@@ -78,6 +78,16 @@ Page {
     }
 
     Text {
+        id: stefano
+        font.pixelSize: units.gu(3)
+        horizontalAlignment: Text.AlignHCenter
+        color: "white"
+        width: parent.width
+        anchors.top: ken.bottom
+        text: "Stefano Verzegnassi"
+    }
+
+    Text {
         id: baconText 
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
