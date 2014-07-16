@@ -175,7 +175,7 @@ MainView {
                     onReleased: isDoorOpen = false;
                 }
 
-                MouseArea {
+                AbstractButton {
                     width: units.gu(10)
                     height: units.gu(10)
 
