@@ -80,6 +80,7 @@ MainView {
 
         Game {
             id: game
+            anchors.centerIn: parent
             height: units.gu(68)
             width: units.gu(44)
 
@@ -90,13 +91,6 @@ MainView {
                 property int highScore: 0;
             }
             
-            Image {
-                // Background of all app
-                source: Qt.resolvedUrl("img/background.png")
-                anchors.fill: parent
-                fillMode: Image.Tile
-            }
-
             Scene {
                 id: scene
                 anchors.fill: parent
@@ -107,6 +101,26 @@ MainView {
                 //TODO: implement an argument to turn on the debug mode on
                 //startup
                 //debug: true
+
+                clip: true
+
+                UbuntuShape {
+                    anchors.fill: parent
+                    color: "black"
+                    radius: "medium"
+                    opacity: 0.25
+                    z: -100
+                    visible: mainview.width > game.width || mainview.height > game.height
+                }
+
+                Rectangle {
+                    anchors { left: parent.left; right: parent.right; bottom: parent.bottom; bottomMargin: units.gu(16) }
+                    width: parent.width
+                    height: 1
+                    color: "white"
+                    opacity: 0.1
+                    z: -10
+                }
 
                 Ball {
                     id: ball
@@ -128,29 +142,45 @@ MainView {
                     anchors.bottom: parent.bottom
                 }
 
-                Text {
+                Label {
                     // Top element that indicate how many ball are in game
                     id: ballCounter
                     anchors.horizontalCenter: parent.horizontalCenter
                     y: 0
 
+                    fontSize: "large"
                     text: numberOfBalls
 
                     color: "white"
-                    font.pixelSize: units.gu(3)
                     horizontalAlignment: Text.AlignHCenter
                 }
 
-                Text {
-                    // User score
-                    id: scoreText
+                Column {
                     anchors.centerIn: parent
+                    width: parent.width
 
-                    text: i18n.tr("level") + " " + level + "\n " + score + " " + i18n.tr("points")
+                    Label {
+                        id: levelText
 
-                    color: "white"
-                    font.pixelSize: units.gu(2.5) 
-                    horizontalAlignment: Text.AlignHCenter
+                        fontSize: "large"
+                        color: "white"
+                        width: parent.width
+                        horizontalAlignment: Text.AlignHCenter
+                        font.weight: Font.Bold
+
+                        text: "level " + level
+                    }
+
+                    Label {
+                        id: scoreText
+
+                        fontSize: "large"
+                        color: "white"
+                        width: parent.width
+                        horizontalAlignment: Text.AlignHCenter
+
+                        text: score + " points"
+                    }
                 }
 
                 Entity {
@@ -201,11 +231,11 @@ MainView {
                     onReleased: isDoorOpen = false;
                 }
 
-                MouseArea {
-                    height: units.gu(10)
-                    width: units.gu(10)
+                AbstractButton {
+                    width: units.gu(4)
+                    height: units.gu(4)
 
-                    anchors.bottom: parent.bottom
+                    anchors { left: parent.left; bottom: parent.bottom; margins: units.gu(2) }
 
                     onClicked: {
                         // Don't change this order!
@@ -251,8 +281,15 @@ MainView {
                             }
                         }
                     }
-                } // End component
-            } // End scene
-        } // End game
-    } // End pagestack
-} // End mainview
+                }
+            }
+        }
+    }
+
+    Image {
+        z: -10
+        source: Qt.resolvedUrl("img/background.png")
+        anchors.fill: parent
+        fillMode: Image.Tile
+    }
+}
