@@ -27,7 +27,7 @@ import "js/game.js" as Game
 MainView {
     id: mainview
     objectName: "mainView"
-    applicationName: "com.ubuntu.developer.rpadovani.100balls"
+    applicationName: game.gameName
 
     height: units.gu(68)
     width: units.gu(44)
@@ -84,7 +84,7 @@ MainView {
             height: units.gu(68)
             width: units.gu(44)
 
-            gameName: "100Balls"
+            gameName: "com.ubuntu.developer.rpadovani.100balls"
 
             Settings {
                 id: settings
