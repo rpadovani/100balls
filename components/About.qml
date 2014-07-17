@@ -102,9 +102,19 @@ Page {
 
     Text {
         // Bacon2D is awesome, seriously
+        id: stefano
+        font.pixelSize: units.gu(3)
+        horizontalAlignment: Text.AlignHCenter
+        color: "white"
+        width: parent.width
+        anchors.top: ken.bottom
+        text: "Stefano Verzegnassi"
+    }
+
+    Text {
         id: baconText 
 
-        anchors.top: ken.bottom
+        anchors.top: stefano.bottom
         anchors.topMargin: units.gu(5)
         width: parent.width
         
