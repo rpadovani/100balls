@@ -46,7 +46,7 @@ Page {
 
         color: "white"
         font.pixelSize: units.gu(2)
-        text: "Alpha"
+        text: "Beta"
     }
 
     Column {

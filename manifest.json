@@ -1,6 +1,6 @@
 {
     "name": "com.ubuntu.developer.rpadovani.100balls",
-    "description": "100Balls is a very simple but addicting app. You have to put as more balls as possible in moving glasses, trying to don't lose any ball.",
+    "description": "100Balls is a very simple but addictive game. Put as many balls as possible in the moving glasses. Try not to lose any balls.",
     "framework": "ubuntu-sdk-14.10-qml-dev2",
     "architecture": "armhf",
     "title": "100balls",
@@ -10,6 +10,6 @@
             "desktop": "100balls.desktop"
         }
     },
-    "version": "0.1",
+    "version": "0.2",
     "maintainer": "Riccardo Padovani <riccardo@rpadovani.com>"
 }

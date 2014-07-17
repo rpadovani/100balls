@@ -28,7 +28,7 @@ Page {
         font.pixelSize: units.gu(2)
         horizontalAlignment: Text.AlignHCenter
 
-        text: "Alpha"
+        text: "Beta"
     }
 
     Text {
