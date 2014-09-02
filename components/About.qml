@@ -1,160 +1,121 @@
-import QtQuick 2.0
-import Ubuntu.Components 0.1
+/*
+ * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ *
+ * This file is part of 100balls.
+ *
+ * 100balls is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by 
+ * the Free Software Foundation; version 3.
+ *
+ * 100balls is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
-Page {
+import QtQuick 2.2
+import QtQuick.Layouts 1.1
+import Ubuntu.Components 1.1
+import Bacon2D 1.0
+
+Scene {
     id: root
 
-    Text {
-        // The title of the game, maybe we can create an image for that?
-        id: title
+    AbstractButton {
+        height: units.gu(4)
+        width: units.gu(4)
 
-        width: parent.width
+        anchors {
+            left: parent.left;
+            bottom: parent.bottom;
+            margins: units.gu(0.2);
+        }
 
-        color: "white"
-        font.pixelSize: units.gu(10)
-        horizontalAlignment: Text.AlignHCenter
+        onClicked: {
+            game.currentScene = mainMenu;
+            columnLayout.y = root.height / 3;
+        }
 
-        text: "100Balls"
+        Image {
+            anchors.fill: parent
+            source: Qt.resolvedUrl("../img/back.svg")
+        }
     }
 
-    Text {
-        // Version of the game, still Alpha :-)
-        id: version
-
-        anchors.top: title.bottom
+    ColumnLayout {
+        id: columnLayout
         width: parent.width
+        y: root.height / 3
 
-        color: "white"
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
+        SequentialAnimation on y {
+            id: sequentialAnimation
+            loops: Animation.Infinite
+            running: root.running
 
-        text: "Beta"
-    }
+            PropertyAnimation {
+                to: root.height / 3 - parent.height;
+                duration: 10000
+            }
+            PropertyAnimation {
+                to: root.height / 4;
+                duration: 10000
+            }
+        }
 
-    Text {
-        // Introductory text for developers
-        id: dev
-
-        anchors.top: version.bottom
-        anchors.topMargin: units.gu(3)
-        width: parent.width
-
-        color: "white"
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-
-        text: i18n.tr("Developed by:")
-    }
-
-    Text {
-        // List of all developers
-        id: name
-
-        anchors.top: dev.bottom
-        width: parent.width
-
-        font.pixelSize: units.gu(3)
-        horizontalAlignment: Text.AlignHCenter
-        color: "white"
-
-        text: "Riccardo Padovani"
-    }
-
-    /*Text {
-        // I want to have a mobile ready site before this
-        id: url 
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-        linkColor: "#DD4814"
-        width: parent.width
-        anchors.top: name.bottom
-        textFormat: Text.StyledText
-        text: "<a href='http://www.rpadovani.com'>www.rpadovani.com</a>"
-    }*/
-
-    Text {
-        // Special thanks to Ken VanDine :-)
-        id: kenint
-
-        anchors.top: name.bottom
-        anchors.topMargin: units.gu(3)
-        width: parent.width
-
-        color: "white"
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-
-        text: i18n.tr("A big thanks to:")
-    }
-
-    Text {
-        id: ken
-
-        anchors.top: kenint.bottom
-        width: parent.width
-        
-        color: "white"
-        font.pixelSize: units.gu(3)
-        horizontalAlignment: Text.AlignHCenter
-        
-        text: "Ken VanDine"
-    }
-
-    Text {
-        // Bacon2D is awesome, seriously
-        id: stefano
-        font.pixelSize: units.gu(3)
-        horizontalAlignment: Text.AlignHCenter
-        color: "white"
-        width: parent.width
-        anchors.top: ken.bottom
-        text: "Stefano Verzegnassi"
-    }
-
-    Text {
-        id: baconText 
-
-        anchors.top: stefano.bottom
-        anchors.topMargin: units.gu(5)
-        width: parent.width
-        
-        color: "white"
-        font.pixelSize: units.gu(2)
-        horizontalAlignment: Text.AlignHCenter
-        
-        text: i18n.tr("Based on:")
-    }
-
-    Text {
-        id: bacon
-
-        anchors.top: baconText.bottom
-        width: parent.width
-        
-        color: "white"
-        font.pixelSize: units.gu(3)
-        horizontalAlignment: Text.AlignHCenter
-        
-        text: "Bacon 2D"
-    }
-
-    Image {
-        // How cute is this pig?
-        id: image 
-
-        source: Qt.resolvedUrl("../img/pig-128.png")
-        
-        anchors.top: bacon.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
-
-    Button {
-        text: i18n.tr("Close")
-        
-        anchors.top: image.bottom
-        anchors.topMargin: units.gu(5)
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        onClicked: pagestack.pop()
+        AboutText {
+            text: "100Balls"
+            font.pixelSize: units.gu(10)
+        }
+        AboutText {
+            text: version
+            font.pixelSize: units.gu(2)
+        }
+        Spacer {}
+        AboutText {
+            text: i18n.tr("Developed by:")
+            font.pixelSize: units.gu(2)
+        }
+        AboutText {
+            text: "Riccardo Padovani"
+            font.pixelSize: units.gu(3)
+        }
+        Spacer {}
+        AboutText {
+            text: i18n.tr("A big thanks to:")
+            font.pixelSize: units.gu(2)
+        }
+        AboutText {
+            text: "Alan Pope"
+            font.pixelSize: units.gu(3)
+        }
+        AboutText {
+            text: "Ken VanDine"
+            font.pixelSize: units.gu(3)
+        }
+        AboutText {
+            text: "Nekhelesh Ramananthan"
+            font.pixelSize: units.gu(3)
+        }
+        AboutText {
+            text: "Stefano Verzegnassi"
+            font.pixelSize: units.gu(3)
+        }
+        Spacer {}
+        AboutText {
+            text: i18n.tr("Based on:")
+            font.pixelSize: units.gu(2)
+        }
+        AboutText {
+            text: "Bacon2D"
+            font.pixelSize: units.gu(3)
+        }
+        Spacer {}
+        Image {
+            source: Qt.resolvedUrl("../img/pig-128.png")
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
 }
