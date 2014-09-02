@@ -17,17 +17,11 @@
  */
 
 import QtQuick 2.0
-import Ubuntu.Components 0.1
-import "../js/setup.js" as Setup
-import "../js/game.js" as Game
+import Ubuntu.Components 1.1
+import Bacon2D 1.0
 
-Page {
-    id: root
-    height: units.gu(60)
-    width: units.gu(48)
-
-    property int highScore: 0
-    property bool anotherGame: false
+Scene {
+    property int highScore
 
     Text {
         id: title
@@ -40,13 +34,12 @@ Page {
     }
 
     Text {
-        id: version
         anchors.top: title.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
         color: "white"
         font.pixelSize: units.gu(2)
-        text: "Beta"
+        text: version
     }
 
     Column {
@@ -58,21 +51,21 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: i18n.tr("Start game!")
 
+            gradient: UbuntuColors.orangeGradient
+
             onClicked: {
-                Setup.newGame();
-                pagestack.pop();
-                Game.launchGlass();
+                game.currentScene = chooseGame;
             }
         }
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Tutorial"
+            text: i18n.tr("Tutorial")
+
+            gradient: UbuntuColors.orangeGradient
 
             onClicked: {
-                var component = Qt.createComponent(Qt.resolvedUrl("Tutorial.qml"));
-                var page = component.createObject(mainview, {highScore: settings.highScore});
-                pagestack.push(page);
+                game.currentScene = tutorial;
             }
         }
 
@@ -80,10 +73,11 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: i18n.tr("About")
 
+            gradient: UbuntuColors.orangeGradient
+
             onClicked: {
-                var component = Qt.createComponent(Qt.resolvedUrl("About.qml"));
-                var page = component.createObject(mainview);
-                pagestack.push(page);
+                game.currentScene = about;
+                about.running = true;
             }
         }
 
