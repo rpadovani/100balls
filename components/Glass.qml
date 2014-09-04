@@ -83,13 +83,13 @@ Component {
             }
             if (levelColor >= 35 && levelColor < 40) {
                 glassScore = 8;
-                lineColor = Qt.rgba(0.66, 0.66, 0.66, 1)        // #A9A9A9 - darkgray 
-                backgroundColor = Qt.rgba(0.66, 0.66, 0.66, 0.5)   
+                lineColor = Qt.rgba(0.66, 0.66, 0.66, 1)        // #A9A9A9 - darkgray
+                backgroundColor = Qt.rgba(0.66, 0.66, 0.66, 0.5)
             }
             glassCanvas.createGlass()
         }
 
-        fixtures: [ 
+        fixtures: [
             Edge {
                 vertices: [
                     Qt.point(0, 0),
@@ -136,20 +136,20 @@ Component {
 
         behavior: ScriptBehavior {
             script: {
-                var newPos = entity.x - velocity;
-                if (newPos < scene.width / 3 && !entity.launchedOther){
+                var newPos = target.x - velocity;
+                if (newPos < gameScene.width / 3 && !target.launchedOther){
                     Game.launchGlass();
-                    entity.launchedOther = true;
+                    target.launchedOther = true;
                 }
 
-                if (newPos < -2 * entity.width) {
+                if (newPos < -2 * target.width) {
                     glass.doDestroy();
                 }
             }
         }
 
         Connections {
-            target: scene
+            target: gameScene
             onRunningChanged: {
                 if (!pause) {
                     glass.doDestroy();

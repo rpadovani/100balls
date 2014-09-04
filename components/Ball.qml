@@ -39,7 +39,7 @@ Component {
             radius: parent.width / 2
 
             // How ball goes... I'm not happy yet with these
-            density: 1 
+            density: 1
             friction: 0.5
             restitution: 0.2
         }
@@ -47,7 +47,7 @@ Component {
         Rectangle {
             // This is the drawn ball
             radius: parent.width / 2
-            
+
             color: parent.ballColor
 
             height: parent.height
@@ -60,7 +60,7 @@ Component {
         }
 
         Connections {
-            target: scene
+            target: gameScene
             onRunningChanged: {
                 if (!pause && !running) {
                     // At the end of the game, destroy all!

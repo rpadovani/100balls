@@ -17,15 +17,16 @@
  */
 
 function launchGlass() {
-    var newGlass = glass.createObject(scene.world);
-    newGlass.x = scene.width;
-    newGlass.y = scene.height - units.gu(20);
+    var newGlass = glass.createObject(gameScene.world);
+    newGlass.x = gameScene.width;
+    newGlass.y = gameScene.height - units.gu(20);
 }
 
 function endGame() {
-    scene.running = false;
+    gameScene.running = false;
     pause = false;
-    game.popScene();
+    game.currentScene = endMenu;
+    endMenu.score = score;
 
     if (score > settings.highScore) {
         settings.highScore = score;
@@ -37,12 +38,4 @@ function endGame() {
     level = 1;
     velocity = units.gu(0.3);
     glassScore = 1;
-
-    if (page) {
-        page.destroy(100);
-    }
-
-    var component = Qt.createComponent(Qt.resolvedUrl("../components/StartPage.qml"));
-    var page = component.createObject(mainview, {highScore: settings.highScore, anotherGame: true});
-    pagestack.push(page);
 }

@@ -16,64 +16,59 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
+import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 import Bacon2D 1.0
 
 Scene {
     property int highScore
 
-    Text {
-        id: title
-        anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
+    ColumnLayout {
+        width: parent.width
 
-        font.pixelSize: units.gu(10)
-        text: "100Balls"
-        color: "white"
-    }
+        AboutText {
+            text: "100Balls"
+            font.pixelSize: units.gu(10)
+        }
+        AboutText {
+            text: version
+            font.pixelSize: units.gu(2)
+        }
 
-    Text {
-        anchors.top: title.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        color: "white"
-        font.pixelSize: units.gu(2)
-        text: version
-    }
-
-    Column {
-        id: column
-        anchors.centerIn: parent
-        spacing: units.gu(5)
+        Spacer {}
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: i18n.tr("Start game!")
 
-            gradient: UbuntuColors.orangeGradient
+            color: UbuntuColors.orange
 
             onClicked: {
                 game.currentScene = chooseGame;
             }
         }
 
+        Spacer {}
+
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: i18n.tr("Tutorial")
 
-            gradient: UbuntuColors.orangeGradient
+            color: UbuntuColors.orange
 
             onClicked: {
                 game.currentScene = tutorial;
             }
         }
 
+        Spacer {}
+
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: i18n.tr("About")
 
-            gradient: UbuntuColors.orangeGradient
+            color: UbuntuColors.orange
 
             onClicked: {
                 game.currentScene = about;
@@ -81,12 +76,11 @@ Scene {
             }
         }
 
-        Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: units.gu(3)
+        Spacer {}
 
+        AboutText {
             text: i18n.tr("High score: " + highScore)
-            color: "white"
+            font.pixelSize: units.gu(3)
         }
     }
 }

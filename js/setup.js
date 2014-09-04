@@ -19,11 +19,11 @@
 function newGame() {
     for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
-            var newBox = ball.createObject(scene.world);
-            newBox.x = scene.width / 3 + units.gu(1.5*j);
+            var newBox = ball.createObject(gameScene.world);
+            newBox.x = gameScene.width / 3 + units.gu(1.5*j);
             newBox.y = units.gu(1.5*i);
         }
     }
-    game.pushScene(scene);
-    scene.running = true;
+    game.pushScene(gameScene);
+    gameScene.running = true;
 }
