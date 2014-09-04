@@ -112,6 +112,11 @@ Game {
         anchors.fill: parent
     }
 
+    Tutorial {
+        id: tutorial
+        anchors.fill: parent
+    }
+
     Image {
         z: -10
         source: Qt.resolvedUrl("img/background.png")
