@@ -20,8 +20,8 @@ function newGame() {
     for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
             var newBox = ball.createObject(gameScene.world);
-            newBox.x = gameScene.width / 3 + units.gu(1.5*j);
-            newBox.y = units.gu(1.5*i);
+            newBox.x = gameScene.width / 2 - units.gu(10)+ units.gu(1.5*j);
+            newBox.y = units.gu(1.5*i) - units.gu(1);
         }
     }
     game.pushScene(gameScene);
