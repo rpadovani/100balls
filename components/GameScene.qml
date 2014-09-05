@@ -28,6 +28,16 @@ Scene {
     running: false
     clip: true
 
+    Timer {
+        id: timeChallengeTimer
+        // For time challenge version only
+        interval: 1000
+
+        onTriggered: remTime--;
+        running: gameType === 'time' && gameScene.running
+        repeat: true
+    }
+
     Rectangle {
         anchors {
             left: parent.left;
@@ -62,6 +72,21 @@ Scene {
 
         fontSize: "large"
         text: numberOfBalls
+
+        color: "white"
+        horizontalAlignment: Text.AlignHCenter
+    }
+
+    Label {
+        // How many seconds user has before the end of the game.
+        // For timeChallenge mode only
+        visible: gameType === 'time'
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: ballCounter.height + units.gu(3)
+
+        fontSize: "large"
+        text: remTime;
 
         color: "white"
         horizontalAlignment: Text.AlignHCenter
@@ -146,6 +171,8 @@ Scene {
     AbstractButton {
         width: units.gu(4)
         height: units.gu(4)
+
+        visible: gameType !== 'time'
 
         anchors { left: parent.left; bottom: parent.bottom; margins: units.gu(2) }
 

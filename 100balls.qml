@@ -53,10 +53,18 @@ Game {
     property alias running: gameScene.running
     // Type of game we want to play
     property var gameType
+    // Time before the end of the game in time challenge mode
+    property int remTime: 100
 
     onNumberOfBallsChanged: {
         if ((gameType === 'perfection' && numberOfBalls === 90)
             || numberOfBalls === 0) {
+            Game.endGame();
+        }
+    }
+
+    onRemTimeChanged: {
+        if (remTime === 0) {
             Game.endGame();
         }
     }

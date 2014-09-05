@@ -38,4 +38,5 @@ function endGame() {
     level = 1;
     velocity = units.gu(0.3);
     glassScore = 1;
+    remTime = 100;
 }
