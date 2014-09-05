@@ -21,6 +21,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 import Bacon2D 1.0
+import "../js/game.js" as Game
 
 Scene {
     gravity: Qt.point(0, 15)
@@ -172,7 +173,6 @@ Scene {
         width: units.gu(4)
         height: units.gu(4)
 
-        visible: gameType !== 'time'
 
         anchors { left: parent.left; bottom: parent.bottom; margins: units.gu(2) }
 
@@ -195,6 +195,7 @@ Scene {
         id: pauseDialog
         Dialog {
             id: dialog
+            z: 10
             title: i18n.tr("Pause")
             text: i18n.tr("If you quit the game the highscore will be saved anyway")
 
@@ -206,6 +207,7 @@ Scene {
                     gameScene.running = true;
                     pause = false;
                 }
+                color: UbuntuColors.orange
             }
 
             Button {
