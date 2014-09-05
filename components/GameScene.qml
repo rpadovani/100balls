@@ -173,7 +173,6 @@ Scene {
         width: units.gu(4)
         height: units.gu(4)
 
-
         anchors { left: parent.left; bottom: parent.bottom; margins: units.gu(2) }
 
         onClicked: {

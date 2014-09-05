@@ -28,8 +28,15 @@ function endGame() {
     game.currentScene = endMenu;
     endMenu.score = score;
 
-    if (score > settings.highScore) {
+
+    if (score > settings.highScore && gameType === 'arcade') {
         settings.highScore = score;
+    }
+    if (score > settings.perfectionScore && gameType === 'perfection') {
+        settings.perfectionScore = score;
+    }
+    if (score > settings.timeScore && gameType === 'time') {
+        settings.timeScore = score;
     }
 
     isDoorOpen = false;

@@ -91,8 +91,6 @@ Game {
     MainMenu {
         id: mainMenu
         anchors.fill: parent
-
-        highScore: settings.highScore
     }
 
     About {

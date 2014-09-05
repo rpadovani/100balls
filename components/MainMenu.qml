@@ -22,8 +22,6 @@ import Ubuntu.Components 1.1
 import Bacon2D 1.0
 
 Scene {
-    property int highScore
-
     ColumnLayout {
         width: parent.width
 
@@ -79,8 +77,19 @@ Scene {
         Spacer {}
 
         AboutText {
-            text: i18n.tr("High score: " + highScore)
-            font.pixelSize: units.gu(3)
+            text: i18n.tr("Arcade score: " + settings.highScore)
+            font.pixelSize: units.gu(2)
+            visible: settings.highScore != 0
+        }
+        AboutText {
+            text: i18n.tr("Perfection score: " + settings.perfectionScore)
+            font.pixelSize: units.gu(2)
+            visible: settings.perfectionScore != 0
+        }
+        AboutText {
+            text: i18n.tr("Time score: " + settings.timeScore)
+            font.pixelSize: units.gu(2)
+            visible: settings.timeScore != 0
         }
     }
 }

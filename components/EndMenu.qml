@@ -41,6 +41,17 @@ Scene {
 
         Spacer {}
 
+        AboutText {
+            text: i18n.tr("Congrats! You did a new personal record!")
+            font.pixelSize: units.gu(3)
+            visible: (score === settings.highScore && gameType === 'arcade') ||
+                     (score === settings.perfectionScore && gameType === 'perfection') ||
+                     (score === settings.timeScore && gameType === 'time')
+            wrapMode: Text.WordWrap
+        }
+
+        Spacer {}
+
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: i18n.tr("Go to main menu")
