@@ -36,7 +36,6 @@ Scene {
 
         onClicked: {
             game.currentScene = mainMenu;
-            columnLayout.y = root.height / 3;
         }
 
         Image {
