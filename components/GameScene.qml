@@ -28,6 +28,9 @@ Scene {
     physics: true
     running: false
     clip: true
+    // Becomes true when the user press anywhere (but pause) and leaves the
+    // balls fall
+    property bool isDoorOpen: doorControl.pressed
 
     Timer {
         id: timeChallengeTimer
@@ -62,7 +65,11 @@ Scene {
 
     Bottom {
         // This element manages balls and take care of the score
-        anchors.bottom: parent.bottom
+        anchors {
+            left: parent.left;
+            right: parent.right;
+            bottom: parent.bottom;
+        }
     }
 
     Label {
@@ -121,24 +128,21 @@ Scene {
         }
     }
 
-    Entity {
+    PhysicsEntity {
         // When user clicks on the screen this become a sensor, and
         // balls can fall
         id: door
-        height: units.gu(1)
+        height: units.gu(0.5)
         width: units.gu(6.25)       // This is the width of the bottleneck of the bowl
         anchors.top: bowl.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
-        fixtures: Box {
-            anchors.fill: parent
+        fixtures: Edge {
             sensor: isDoorOpen      // <- All game is here :-)
-            Edge {
-                vertices: [
-                    Qt.point(0, 0),
-                    Qt.point(width, 0)
-                ]
-            }
+            vertices: [
+                Qt.point(0, 0),
+                Qt.point(door.width, 0)
+            ]
         }
 
         Canvas {
@@ -162,11 +166,10 @@ Scene {
     }
 
     MouseArea {
+        id: doorControl
         // When the user press on the screen door opens and balls
         // fall
         anchors.fill: parent
-        onPressed: isDoorOpen = true;
-        onReleased: isDoorOpen = false;
     }
 
     AbstractButton {
