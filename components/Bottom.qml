@@ -19,34 +19,29 @@
 import QtQuick 2.0
 import Bacon2D 1.0
 
-Entity {
+PhysicsEntity {
     height: units.gu(10)
     width: units.gu(200)
 
-    anchors.horizontalCenter: parent.horizontalCenter
-
-    fixtures: [
-        Edge {
-            vertices: [
-                Qt.point(0, parent.height),
-                Qt.point(parent.width, parent.height)
-            ]
-
-            sensor: true
-
-            onBeginContact: {
-                if (other.parent.glassContact === true) {
-                    // If the ball went throught a glass, reset it and put it
-                    // at the top of the scene
-                    other.parent.x = gameScene.width / 2;
-                    other.parent.y = 0;
-                    other.parent.glassContact = false;
-                    score += other.parent.ballLevel;
-                }
-                else {
-                    other.parent.doDestroy();
-                }
+    fixtures: Edge {
+        vertices: [
+            Qt.point(0, target.height),
+            Qt.point(target.width, target.height)
+        ]
+        sensor: true
+        onBeginContact: {
+            var body = other.getBody();
+            if (body.target.glassContact === true) {
+                // If the ball went throught a glass, reset it and put it
+                // at the top of the scene
+                body.target.x = gameScene.width / 2;
+                body.target.y = 0;
+                body.target.glassContact = false;
+                score += body.target.ballLevel;
+            }
+            else {
+                body.target.doDestroy();
             }
         }
-    ]
+    }
 }
