@@ -25,8 +25,6 @@ import "js/game.js" as Game
 
 Game {
     id: game
-    anchors.centerIn: parent
-
     height: units.gu(68)
     width: units.gu(44)
 
@@ -34,9 +32,6 @@ Game {
 
     // Version of the game
     property real version: 0.3
-    // Becomes true when the user press anywhere (but pause) and leaves the
-    // balls fall
-    property bool isDoorOpen: false
     // Becomes true when the game is in pause. Needs because when scene.running
     // is false all objects are destroyed, not if this is true
     property bool pause: false
@@ -101,9 +96,7 @@ Game {
     GameScene {
         id: gameScene
         anchors.fill: parent
-
         running: false
-
         Ball { id: ball }
         Glass { id: glass }
     }
@@ -130,4 +123,3 @@ Game {
         fillMode: Image.Tile
     }
 }
-

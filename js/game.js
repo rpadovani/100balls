@@ -17,7 +17,7 @@
  */
 
 function launchGlass() {
-    var newGlass = glass.createObject(gameScene.world);
+    var newGlass = glass.createObject(gameScene);
     newGlass.x = gameScene.width;
     newGlass.y = gameScene.height - units.gu(20);
 }
@@ -39,7 +39,6 @@ function endGame() {
         settings.timeScore = score;
     }
 
-    isDoorOpen = false;
     numberOfBalls = 100;
     score = 0;
     level = 1;

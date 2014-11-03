@@ -19,7 +19,7 @@
 import QtQuick 2.0
 import Bacon2D 1.0
 
-Entity {
+PhysicsEntity {
     height: units.gu(30) 
     width: units.gu(25)
 
@@ -28,53 +28,53 @@ Entity {
         Edge {
             vertices: [
                 Qt.point(0, 0),
-                Qt.point(0, parent.height * 2/5)
+                Qt.point(0, target.height * 2/5)
             ]
         }, 
         Edge {
             vertices: [
-                Qt.point(0, parent.height * 2/5),
-                Qt.point(parent.width * 3/8, parent.height * 3/5)
+                Qt.point(0, target.height * 2/5),
+                Qt.point(target.width * 3/8, target.height * 3/5)
             ]
         }, 
         Edge {
             vertices: [
-                Qt.point(parent.width * 3/8, parent.height * 3/5),
-                Qt.point(parent.width * 3/8, parent.height)
+                Qt.point(target.width * 3/8, target.height * 3/5),
+                Qt.point(target.width * 3/8, target.height)
             ]
         },
 
         // Right border
         Edge {
             vertices: [
-                Qt.point(parent.width, 0),
-                Qt.point(parent.width, parent.height * 2/5)
+                Qt.point(target.width, 0),
+                Qt.point(target.width, target.height * 2/5)
             ]
         }, 
         Edge {
             vertices: [
-                Qt.point(parent.width, parent.height * 2/5),
-                Qt.point(parent.width * 5/8, parent.height * 3/5)
+                Qt.point(target.width, target.height * 2/5),
+                Qt.point(target.width * 5/8, target.height * 3/5)
             ]
         }, 
         Edge {
             vertices: [
-                Qt.point(parent.width * 5/8, parent.height * 3/5),
-                Qt.point(parent.width * 5/8, parent.height)
+                Qt.point(target.width * 5/8, target.height * 3/5),
+                Qt.point(target.width * 5/8, target.height)
             ]
         },
 
         // Top pyramid
         Edge {
             vertices: [
-                Qt.point(parent.width / 4, parent.height / 4),
-                Qt.point(parent.width / 2, parent.height / 8),
+                Qt.point(target.width / 4, target.height / 4),
+                Qt.point(target.width / 2, target.height / 8),
             ]
         },
         Edge {
             vertices: [
-                Qt.point(parent.width / 2, parent.height / 8),
-                Qt.point(parent.width * 3/4, parent.height / 4)
+                Qt.point(target.width / 2, target.height / 8),
+                Qt.point(target.width * 3/4, target.height / 4)
             ]
         }
     ]

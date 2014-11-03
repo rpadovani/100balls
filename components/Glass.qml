@@ -22,9 +22,9 @@ import Bacon2D 1.0
 import "../js/game.js" as Game
 
 Component {
-    Entity {
+    PhysicsEntity {
         id: glass
-        bodyType: Entity.Kinematic
+        bodyType: Body.Kinematic
 
         height: units.gu(8)
         width: units.gu(8)
@@ -93,25 +93,26 @@ Component {
             Edge {
                 vertices: [
                     Qt.point(0, 0),
-                    Qt.point(parent.width / 4, parent.height)
+                    Qt.point(target.width / 4, target.height)
                 ]
             },
             Edge {
                 vertices: [
-                    Qt.point(parent.width, 0),
-                    Qt.point(parent.width * 3/4, parent.height)
+                    Qt.point(target.width, 0),
+                    Qt.point(target.width * 3/4, target.height)
                 ]
             },
             Edge {
                 vertices: [
-                    Qt.point(parent.width / 4, parent.height),
-                    Qt.point(parent.width * 3/4 , parent.height)
+                    Qt.point(target.width / 4, target.height),
+                    Qt.point(target.width * 3/4 , target.height)
                 ]
                 sensor: true
                 onBeginContact: {
-                    other.parent.glassContact = true;
-                    other.parent.ballColor = lineColor;
-                    other.parent.ballLevel = glassScore;
+                    var body = other.getBody();
+                    body.target.glassContact = true;
+                    body.target.ballColor = lineColor;
+                    body.target.ballLevel = glassScore;
                 }
             }
         ]
