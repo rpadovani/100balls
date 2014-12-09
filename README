@@ -1,5 +1,6 @@
 100 Balls
 =============
+
 Open source clone of 100 Balls for Ubuntu for Phones
 
 Based on Bacon2D, a framework to ease 2D game development, providing
@@ -16,6 +17,7 @@ qmlscene 100balls.qml
 
 Contribution
 -------
+
 If you want to help with developement, or you have a suggestion, write to
 riccardo AT rpadovani DOT com or ping rpadovani on #ubuntu-app-devel on
 Freenode :-)

@@ -4,7 +4,7 @@
  * This file is part of 100balls.
  *
  * 100balls is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by 
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
  * 100balls is distributed in the hope that it will be useful,
@@ -33,7 +33,7 @@ Game {
     gameName: "com.ubuntu.developer.rpadovani.100balls"
 
     // Version of the game
-    property real version: 0.3
+    property var version: "0.3.2"
     // Becomes true when the user press anywhere (but pause) and leaves the
     // balls fall
     property bool isDoorOpen: false

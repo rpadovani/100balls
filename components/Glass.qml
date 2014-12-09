@@ -4,7 +4,7 @@
  * This file is part of 100balls.
  *
  * 100balls is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by 
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
  * 100balls is distributed in the hope that it will be useful,
