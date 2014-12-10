@@ -49,7 +49,7 @@ Scene {
         width: parent.width
 
         AboutText {
-            text: i18n.tr("Touch the screen in any point to open the door and let the balls fall. \nTry to put more balls possible in every glass. \nYou start with 100 balls, any ball which falls off the glass is lost. \n\nEvery 50 balls you put in glasses you'll advance of one level. \nEvery 5 levels there is a little chance to have a glass of another color.\nEvery glass color has a different score.")
+            text: i18n.tr("Touch anywhere on the screen to open the door and let the balls fall. \nTry to catch as many balls as possible in each glass. \nYou start with 100 balls, any ball which misses the glass is lost. \n\nEvery 50 balls you catch in the glasses you'll advance one level. \nEvery 5 levels completed you'll have a chance to get a glass of another color.\nEach glass color has a different score.")
             font.pixelSize: units.gu(2)
             wrapMode: Text.WordWrap
         }
@@ -59,7 +59,7 @@ Scene {
             font.pixelSize: units.gu(2.5)
         }
         AboutText {
-            text: i18n.tr("The arcade mode is the classic mode: you have 100 balls, every time a ball falls is lost, do your best!")
+            text: i18n.tr("The arcade mode is the classic mode: you start with 100 balls, each ball that misses is lost, do your best!")
             font.pixelSize: units.gu(2)
             wrapMode: Text.WordWrap
         }
@@ -68,7 +68,7 @@ Scene {
             font.pixelSize: units.gu(2.5)
         }
         AboutText {
-            text: i18n.tr("In perfection mode you have 100 balls, but you can lost only 10 balls before the game ends")
+            text: i18n.tr("In perfection mode you start with 100 balls, but you can only lose 10 balls before the game ends.")
             font.pixelSize: units.gu(2)
             wrapMode: Text.WordWrap
         }
@@ -77,7 +77,7 @@ Scene {
             font.pixelSize: units.gu(2.5)
         }
         AboutText {
-            text: i18n.tr("100 balls. 100 seconds. Hurry up!")
+            text: i18n.tr("100 balls.  100 seconds.  Hurry up!")
             font.pixelSize: units.gu(2)
         }
     }

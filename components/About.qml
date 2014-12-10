@@ -105,12 +105,16 @@ Scene {
         }
         Spacer {}
         AboutText {
-            text: i18n.tr("Based on:")
+            text: i18n.tr("Built with:")
             font.pixelSize: units.gu(2)
         }
         AboutText {
             text: "Bacon2D"
             font.pixelSize: units.gu(3)
+            MouseArea {
+                anchors.fill: parent
+                onClicked: Qt.openUrlExternally("http://www.bacon2d.com")
+            }
         }
         Spacer {}
         Image {

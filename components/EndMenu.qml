@@ -42,7 +42,7 @@ Scene {
         Spacer {}
 
         AboutText {
-            text: i18n.tr("Congrats! You did a new personal record!")
+            text: i18n.tr("Congrats! You set a new personal record!")
             font.pixelSize: units.gu(3)
             visible: (score === settings.highScore && gameType === 'arcade') ||
                      (score === settings.perfectionScore && gameType === 'perfection') ||
