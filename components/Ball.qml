@@ -35,7 +35,7 @@ Component {
 
         fixtures: Circle {
             // This is the physic entity
-            radius: ballEntity.width / 2
+            radius: target.width / 2
 
             // How ball goes... I'm not happy yet with these
             density: 1
