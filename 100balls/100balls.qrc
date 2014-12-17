@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>components/About.qml</file>
+        <file>components/AboutText.qml</file>
+        <file>components/Ball.qml</file>
+        <file>components/Bottom.qml</file>
+        <file>components/Bowl.qml</file>
+        <file>components/ChooseGame.qml</file>
+        <file>components/EndMenu.qml</file>
+        <file>components/GameScene.qml</file>
+        <file>components/Glass.qml</file>
+        <file>components/MainMenu.qml</file>
+        <file>components/Spacer.qml</file>
+        <file>components/Tutorial.qml</file>
+        <file>img/back.svg</file>
+        <file>img/background.png</file>
+        <file>img/pause.png</file>
+        <file>img/pig-128.png</file>
+        <file>js/game.js</file>
+        <file>js/setup.js</file>
+    </qresource>
+</RCC>

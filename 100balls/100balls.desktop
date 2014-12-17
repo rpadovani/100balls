@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=100balls
-Exec=qmlscene $@ 100balls.qml 
-Icon=100balls.png
+Name=100 Balls
+Exec=100balls
+Icon=100balls/100balls.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
