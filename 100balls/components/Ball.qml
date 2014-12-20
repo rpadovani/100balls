@@ -20,12 +20,12 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 Component {
-    Entity {
+    PhysicsEntity {
         id: ballEntity
         height: units.gu(1.3)
         width: units.gu(1.3)
 
-        bodyType: Entity.Dynamic
+        bodyType: Body.Dynamic
         sleepingAllowed: false // If sleeping is allowed, when the door becomes a sensor, ball doesn't fall
 
         // Becomes true if goes throught a glass
@@ -35,8 +35,7 @@ Component {
 
         fixtures: Circle {
             // This is the physic entity
-            anchors.centerIn: parent
-            radius: parent.width / 2
+            radius: target.width / 2
 
             // How ball goes... I'm not happy yet with these
             density: 1

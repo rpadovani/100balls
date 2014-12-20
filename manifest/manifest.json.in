@@ -1,15 +1,15 @@
 {
     "name": "com.ubuntu.developer.rpadovani.100balls",
     "description": "100Balls is a very simple but addictive game. Put as many balls as possible in the moving glasses. Try not to lose any balls.",
-    "framework": "ubuntu-sdk-14.10-qml-dev3",
-    "architecture": "armhf",
+    "architecture": "@CLICK_ARCH@",
     "title": "100balls",
     "hooks": {
         "100balls": {
-            "apparmor": "100balls.json",
-            "desktop": "100balls.desktop"
+            "apparmor": "100balls/100balls.apparmor",
+            "desktop":  "100balls/100balls.desktop"
         }
     },
     "version": "0.3.2",
-    "maintainer": "Riccardo Padovani <riccardo@rpadovani.com>"
+    "maintainer": "Riccardo Padovani <riccardo@rpadovani.com>",
+    "framework" : "ubuntu-sdk-14.10"
 }
