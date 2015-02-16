@@ -1,10 +1,10 @@
 /*
- * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ * Copyright 2014-2015 Riccardo Padovani <riccardo@rpadovani.com>
  *
  * This file is part of 100balls.
  *
  * 100balls is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by 
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
  * 100balls is distributed in the hope that it will be useful,
@@ -82,6 +82,10 @@ Scene {
             text: "Riccardo Padovani"
             font.pixelSize: units.gu(3)
         }
+        AboutText {
+            text: "rpadovani.com"
+            font.pixelSize: units.gu(2)
+        }
         Spacer {}
         AboutText {
             text: i18n.tr("A big thanks to:")
@@ -97,6 +101,10 @@ Scene {
         }
         AboutText {
             text: "Nekhelesh Ramananthan"
+            font.pixelSize: units.gu(3)
+        }
+        AboutText {
+            text: "Sam Hewitt"
             font.pixelSize: units.gu(3)
         }
         AboutText {

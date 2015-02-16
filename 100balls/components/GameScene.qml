@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ * Copyright 2014-2015 Riccardo Padovani <riccardo@rpadovani.com>
  *
  * This file is part of 100balls.
  *
@@ -65,6 +65,7 @@ Scene {
 
     Bottom {
         // This element manages balls and take care of the score
+        width: parent.width
         anchors {
             left: parent.left;
             right: parent.right;
@@ -170,6 +171,8 @@ Scene {
         // When the user press on the screen door opens and balls
         // fall
         anchors.fill: parent
+
+        onPressed: console.log(pressed)
     }
 
     AbstractButton {

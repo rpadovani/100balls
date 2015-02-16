@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ * Copyright 2014-2015 Riccardo Padovani <riccardo@rpadovani.com>
  *
  * This file is part of 100balls.
  *
@@ -22,29 +22,23 @@ function launchGlass() {
     newGlass.y = gameScene.height - units.gu(20);
 }
 
-function restartGame() {
-    gameScene.running = false;
-    pause = false;
-
-    isDoorOpen = false;
-    numberOfBalls = 100;
-    score = 0;
-    level = 1;
-    velocity = units.gu(0.3);
-    glassScore = 1;
-    remTime = 100;
-
+function newGame() {
     score = 0;
     for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
-            var newBox = ball.createObject(gameScene.world);
+            var newBox = ball.createObject(gameScene);
             newBox.x = gameScene.width / 2 - units.gu(10)+ units.gu(1.5*j);
             newBox.y = units.gu(1.5*i) - units.gu(1);
         }
     }
-
+    game.pushScene(gameScene);
     gameScene.running = true;
     launchGlass();
+}
+
+function restartGame() {
+    endGame();
+    newGame();
 }
 
 function endGame() {
@@ -52,7 +46,6 @@ function endGame() {
     pause = false;
     game.currentScene = endMenu;
     endMenu.score = score;
-
 
     if (score > settings.highScore && gameType === 'arcade') {
         settings.highScore = score;

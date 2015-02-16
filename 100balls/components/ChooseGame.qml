@@ -1,10 +1,10 @@
 /*
- * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ * Copyright 2014-2015 Riccardo Padovani <riccardo@rpadovani.com>
  *
  * This file is part of 100balls.
  *
  * 100balls is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by 
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
  * 100balls is distributed in the hope that it will be useful,
@@ -21,9 +21,28 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 import Bacon2D 1.0
 import "../js/game.js" as Game
-import "../js/setup.js" as Setup
 
 Scene {
+    AbstractButton {
+        height: units.gu(4)
+        width: units.gu(4)
+
+        anchors {
+            left: parent.left;
+            bottom: parent.bottom;
+            margins: units.gu(0.2);
+        }
+
+        onClicked: {
+            game.currentScene = mainMenu;
+        }
+
+        Image {
+            anchors.fill: parent
+            source: Qt.resolvedUrl("../img/back.svg")
+        }
+    }
+
     ColumnLayout {
         width: parent.width
 
@@ -46,8 +65,7 @@ Scene {
 
             onClicked: {
                 game.gameType = 'arcade';
-                Setup.newGame();
-                Game.launchGlass();
+                Game.newGame();
             }
         }
 
@@ -61,8 +79,7 @@ Scene {
 
             onClicked: {
                 game.gameType = 'perfection';
-                Setup.newGame();
-                Game.launchGlass();
+                Game.newGame();
             }
         }
 
@@ -76,8 +93,7 @@ Scene {
 
             onClicked: {
                 game.gameType = 'time';
-                Setup.newGame();
-                Game.launchGlass();
+                Game.newGame();
             }
         }
     }

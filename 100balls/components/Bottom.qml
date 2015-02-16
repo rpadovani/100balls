@@ -1,10 +1,10 @@
 /*
- * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ * Copyright 2014-2015 Riccardo Padovani <riccardo@rpadovani.com>
  *
  * This file is part of 100balls.
  *
  * 100balls is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by 
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
  * 100balls is distributed in the hope that it will be useful,
@@ -20,8 +20,7 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 PhysicsEntity {
-    height: units.gu(10)
-    width: units.gu(200)
+    height: units.gu(1)
 
     fixtures: Edge {
         vertices: [

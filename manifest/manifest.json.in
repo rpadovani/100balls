@@ -6,10 +6,10 @@
     "hooks": {
         "100balls": {
             "apparmor": "100balls/100balls.apparmor",
-            "desktop":  "100balls/100balls.desktop"
+            "desktop": "100balls/100balls.desktop"
         }
     },
-    "version": "0.3.2",
+    "version": "0.4",
     "maintainer": "Riccardo Padovani <riccardo@rpadovani.com>",
-    "framework" : "ubuntu-sdk-14.10"
+    "framework": "ubuntu-sdk-14.10"
 }

@@ -18,6 +18,5 @@
         <file>img/pause.png</file>
         <file>img/pig-128.png</file>
         <file>js/game.js</file>
-        <file>js/setup.js</file>
     </qresource>
 </RCC>

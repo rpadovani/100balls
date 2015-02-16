@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Riccardo Padovani <riccardo@rpadovani.com>
+ * Copyright 2014-2015 Riccardo Padovani <riccardo@rpadovani.com>
  *
  * This file is part of 100balls.
  *
@@ -20,7 +20,6 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Bacon2D 1.0
 import "components"
-import "js/setup.js" as Setup
 import "js/game.js" as Game
 
 Game {
@@ -33,7 +32,7 @@ Game {
     gameName: "com.ubuntu.developer.rpadovani.100balls"
 
     // Version of the game
-    property var version: "0.3.2"
+    property var version: "0.4"
     // Becomes true when the user press anywhere (but pause) and leaves the
     // balls fall
     property bool isDoorOpen: false
