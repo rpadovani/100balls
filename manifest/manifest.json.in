@@ -9,7 +9,7 @@
             "desktop": "100balls/100balls.desktop"
         }
     },
-    "version": "0.4",
+    "version": "0.4.1",
     "maintainer": "Riccardo Padovani <riccardo@rpadovani.com>",
     "framework": "ubuntu-sdk-14.10"
 }

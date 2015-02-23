@@ -64,11 +64,11 @@ Scene {
     }
 
     Bottom {
-        // This element manages balls and take care of the score
-        width: parent.width
         anchors {
             left: parent.left;
+            leftMargin: -parent.width;
             right: parent.right;
+            rightMargin: -parent.width;
             bottom: parent.bottom;
         }
     }
@@ -171,8 +171,6 @@ Scene {
         // When the user press on the screen door opens and balls
         // fall
         anchors.fill: parent
-
-        onPressed: console.log(pressed)
     }
 
     AbstractButton {
