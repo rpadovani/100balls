@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 100balls\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-16 00:26+0200\n"
+"POT-Creation-Date: 2015-03-31 15:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,73 +17,126 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: 100balls.qml:149
-msgid "level"
+#: 100balls/components/Tutorial.qml:52
+msgid ""
+"Touch anywhere on the screen to open the door and let the balls fall. \n"
+"Try to catch as many balls as possible in each glass. \n"
+"You start with 100 balls, any ball which misses the glass is lost. \n"
+"\n"
+"Every 50 balls you catch in the glasses you'll advance one level. \n"
+"Every 5 levels completed you'll have a chance to get a glass of another "
+"color.\n"
+"Each glass color has a different score."
 msgstr ""
 
-#: 100balls.qml:149
-msgid "points"
+#: 100balls/components/Tutorial.qml:58
+msgid "Arcade mode:"
 msgstr ""
 
-#: 100balls.qml:229
-msgid "Pause"
+#: 100balls/components/Tutorial.qml:62
+msgid ""
+"The arcade mode is the classic mode: you start with 100 balls, each ball "
+"that misses is lost, do your best!"
 msgstr ""
 
-#: 100balls.qml:230
-msgid "If you quit the game the highscore will be saved anyway"
+#: 100balls/components/Tutorial.qml:67
+msgid "Perfection mode:"
 msgstr ""
 
-#: 100balls.qml:233
-msgid "Continue game"
+#: 100balls/components/Tutorial.qml:71
+msgid ""
+"In perfection mode you start with 100 balls, but you can only lose 10 balls "
+"before the game ends."
 msgstr ""
 
-#: 100balls.qml:243
-msgid "Exit game"
+#: 100balls/components/Tutorial.qml:76
+msgid "Time challenge:"
 msgstr ""
 
-#: components/About.qml:46
-msgid "Developed by:"
+#: 100balls/components/Tutorial.qml:80
+msgid "100 balls.  100 seconds.  Hurry up!"
 msgstr ""
 
-#: components/About.qml:87
-msgid "A big thanks to:"
-msgstr ""
-
-#: components/About.qml:115
-msgid "Based on:"
-msgstr ""
-
-#: components/About.qml:142
-msgid "Close"
-msgstr ""
-
-#: components/StartPage.qml:59
+#: 100balls/components/MainMenu.qml:41
 msgid "Start game!"
 msgstr ""
 
-#: components/StartPage.qml:81
+#: 100balls/components/MainMenu.qml:54
+msgid "Tutorial"
+msgstr ""
+
+#: 100balls/components/MainMenu.qml:67
 msgid "About"
 msgstr ""
 
-#: components/StartPage.qml:94
-msgid "High score: "
+#: 100balls/components/MainMenu.qml:80
+msgid "Arcade score: "
 msgstr ""
 
-#: components/Tutorial.qml:35
-msgid ""
-"The game is very easy :-) \n"
-"\n"
-"Touch the screen in any point to open the door and let the balls fall. \n"
-"Try to put more balls possible in every glass. \n"
-"You start with 100 balls, any ball which falls off the glass is lost. \n"
-"\n"
-"Every 50 balls you put in glasses you'll advance of one level. \n"
-"Every 5 levels there is a little chance to have a glass of another color.\n"
-"Every glass color has a different score.\n"
-"\n"
-"Try to do your best :-) "
+#: 100balls/components/MainMenu.qml:85
+msgid "Perfection score: "
 msgstr ""
 
-#: components/Tutorial.qml:42
-msgid "I'm ready"
+#: 100balls/components/MainMenu.qml:90
+msgid "Time score: "
+msgstr ""
+
+#: 100balls/components/ChooseGame.qml:62
+msgid "Arcade"
+msgstr ""
+
+#: 100balls/components/ChooseGame.qml:76
+msgid "Perfection"
+msgstr ""
+
+#: 100balls/components/ChooseGame.qml:90
+msgid "Time challenge"
+msgstr ""
+
+#: 100balls/components/EndMenu.qml:31
+msgid "Game over!"
+msgstr ""
+
+#: 100balls/components/EndMenu.qml:38
+msgid "Your score: "
+msgstr ""
+
+#: 100balls/components/EndMenu.qml:45
+msgid "Congrats! You set a new personal record!"
+msgstr ""
+
+#: 100balls/components/EndMenu.qml:57
+msgid "Go to main menu"
+msgstr ""
+
+#: 100balls/components/About.qml:78
+msgid "Developed by:"
+msgstr ""
+
+#: 100balls/components/About.qml:91
+msgid "A big thanks to:"
+msgstr ""
+
+#: 100balls/components/About.qml:116
+msgid "Built with:"
+msgstr ""
+
+#: 100balls/components/GameScene.qml:202
+msgid "Pause"
+msgstr ""
+
+#: 100balls/components/GameScene.qml:203
+msgid "If you quit the game the highscore will be saved anyway"
+msgstr ""
+
+#: 100balls/components/GameScene.qml:206
+msgid "Continue game"
+msgstr ""
+
+#: 100balls/components/GameScene.qml:217
+msgid "Restart game"
+msgstr ""
+
+#: 100balls/components/GameScene.qml:231
+msgid "Exit game"
 msgstr ""
