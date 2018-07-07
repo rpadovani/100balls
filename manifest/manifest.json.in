@@ -11,5 +11,5 @@
     },
     "version": "0.4.1",
     "maintainer": "Riccardo Padovani <riccardo@rpadovani.com>",
-    "framework": "ubuntu-sdk-14.10"
+    "framework": "ubuntu-sdk-16.04"
 }
