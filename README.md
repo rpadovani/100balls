@@ -17,8 +17,9 @@ Then you can close this repository, and launch the game executing
 in the root of the project
 
 ### On Ubuntu Phone
+This app can be installed from the [OpenStore](https://open-store.io/app/com.ubuntu.developer.rpadovani.100balls). 
 
-The app is free, you can find it on the Ubuntu Store
+To build the click package, install [clickable](https://github.com/bhdouglass/clickable). Simply run `clickable` from the app directory. See [clickable documentation](http://clickable.bhdouglass.com/) for details. 
 
 ## Contribution
 
@@ -27,7 +28,7 @@ to Riccardo or ping rpadovani on #ubuntu-app-devel on Freenode :-)
 
 ## Thanks
 
-This game won't be possible without help of these developers:
+This game wouldn't be possible without help of these developers:
 
 - Alan Pope
 - Ken VanDine
